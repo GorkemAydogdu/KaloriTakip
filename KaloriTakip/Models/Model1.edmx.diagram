@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="323071d5bfc24ba6830ce71c1eb8eeae" Name="Diagram1">
+        <EntityTypeShape EntityType="KaloriTakipModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_AksamYemegi" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_AraOgun" Width="1.5" PointX="8.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_Bildirimler" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_Diyetisyen" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_DiyetisyenlerinHastalari" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_Kahvaltı" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_KiloTakip" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_Kullanici" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_OgleYemegi" Width="1.5" PointX="8.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_Yemek" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_Yetki" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaloriTakipModel.tbl_Yonetici" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_AksamYemegi_tbl_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_AksamYemegi_tbl_Yemek" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_AraOgun_tbl_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_AraOgun_tbl_Yemek" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_Bildirimler_tbl_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_Diyetisyen_tbl_Yetki" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_Kahvaltı_tbl_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_Kahvaltı_tbl_Yemek" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_KiloTakip_tbl_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_Kullanici_tbl_Yetki" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_OgleYemegi_tbl_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_OgleYemegi_tbl_Yemek" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KaloriTakipModel.ilceler" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="KaloriTakipModel.iller" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="KaloriTakipModel.FK_ilceler_iller" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_Diyetisyen_ilceler" />
+        <AssociationConnector Association="KaloriTakipModel.FK_tbl_Diyetisyen_iller" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

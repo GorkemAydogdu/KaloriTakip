@@ -1,0 +1,104 @@
+﻿@model KaloriTakip.Models.tbl_Yemek
+@{
+    ViewBag.Title = "YemekGetir";
+}
+
+@using (Html.BeginForm("YemekGetir", "Kullanici", FormMethod.Post))
+{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <title>Yemek Getir</title>
+    <style>
+        input {
+            box-shadow: none !important;
+        }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
+        .btn-width {
+            width: 24.69% !important;
+        }
+
+            .btn-width:focus, .btn-width:active {
+                box-shadow: none !important;
+                /*            border:none!important;
+            outline: none !important;*/
+            }
+
+        .form-check-inline .form-check-input {
+            margin-top: 5px;
+        }
+    </style>
+    <div class="container my-4">
+        <h5 class="my-3">@Html.ValueFor(m => m.YemekAdi)</h5>
+        <input type="number" class="form-control" name="porsiyon" id="porsiyon" min="1" max="1000" value="100" />
+        <input type="text" class="form-control my-3" readonly value="g" />
+        <input type="date" class="form-control my-3" required name="tarih" />
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Ogunler" id="breakfast" value="Breakfast">
+            <label class="form-check-label" for="breakfast">Breakfast</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Ogunler" id="lunch" value="Lunch">
+            <label class="form-check-label" for="lunch">Lunch</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Ogunler" id="dinner" value="Dinner">
+            <label class="form-check-label" for="dinner">Dinner</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Ogunler" id="snacks/other" value="Snacks/Other">
+            <label class="form-check-label" for="snacks/other">Snacks/Other</label>
+        </div>
+        <button class="btn btn-success w-100 mt-2 mb-3">Save</button>
+
+        <button class="btn btn-secondary btn-width" disabled>Calories <br /><span name="kalori" id="kalori"> @Html.ValueFor(m => m.Kalori_100Gram_) </span></button>
+        <button class="btn btn-secondary btn-width" disabled>Total Fat <br /> <span id="yag">@Html.ValueFor(m => m.YagMiktari)</span>g</button>
+        <button class="btn btn-secondary btn-width" disabled>Total Carb <br /> <span id="carb">@Html.ValueFor(m => m.KarbonhidratMiktari)</span>g</button>
+        <button class="btn btn-secondary btn-width" disabled>Protein <br /> <span id="protein">@Html.ValueFor(m => m.ProteinMiktari)</span>g</button>
+
+    </div>
+
+    <script>
+
+        const porsiyonEl = document.getElementById("porsiyon");
+        const yagEl = document.getElementById("yag");
+        const kaloriEl = document.getElementById("kalori");
+        const carbEl = document.getElementById("carb");
+        const proteinEl = document.getElementById("protein");
+
+        let kalori = kaloriEl.innerHTML; 
+        let yag = yagEl.innerHTML;
+        let carb = carbEl.innerHTML;
+        let protein = proteinEl.innerHTML;
+        console.log(kalori, yag, carb, protein);
+
+        porsiyonEl.addEventListener("keyup", () => {
+            let girilen = porsiyonEl.value;
+            let porsiyonMiktari = girilen / 100;
+            kaloriEl.innerHTML = (porsiyonMiktari * kalori).toFixed(2);
+            yagEl.innerHTML = (porsiyonMiktari * yag).toFixed(2);
+            carbEl.innerHTML = (porsiyonMiktari * carb).toFixed(2);
+            proteinEl.innerHTML = (porsiyonMiktari * protein).toFixed(2);
+
+        })
+
+    </script>
+
+    <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/JS/JavaScript.js"></script>
+}
+
+

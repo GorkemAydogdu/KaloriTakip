@@ -1,0 +1,48 @@
+﻿@using KaloriTakip.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<tbl_Yemek>
+@{
+    ViewBag.Title = "YemekArama";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<title>Yemek Arama</title>
+<span class="fw-bold fs-3">Yemekler</span>
+@using (Html.BeginForm("YemekArama", "Kullanici", FormMethod.Get))
+{
+    <div class="form-group">
+        <div class="w-25 float-start">
+            @Html.TextBox("y", null, new { @class = "form-control", @placeholder = "Yemek Ara" })
+
+        </div>
+        <input type="submit" value="Ara" class="btn btn-info ml-3" />
+    </div>
+
+}
+<table class="table table-bordered mt-2">
+    <thead>
+        <tr>
+            <th>Yemek Adı</th>
+            <th>Kalorisi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var yemek in Model)
+        {
+            <tr>
+                <td><a class="" href="/Kullanici/YemekGetir/@yemek.ID">@yemek.YemekAdi</a></td>
+                <td>@yemek.Kalori_100Gram_</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("YemekArama", new { sayfa }))
+
+<script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Content/JS/JavaScript.js"></script>

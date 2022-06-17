@@ -1,0 +1,48 @@
+﻿@model KaloriTakip.Models.tbl_Diyetisyen
+@{
+    ViewBag.Title = "DiyetisyenGetir";
+}
+
+<div class="container">
+    <form method="post" class="form-group">
+        <div>
+            <label>Diyetisyen Adi</label>
+            @Html.TextBoxFor(m => m.DiyetisyenAdi, new { @disabled = "true", @class = "form-control" }) @*Modelden gelen diyetisyen adi yaz*@
+        </div>
+        <div>
+            <label>Diyetisyen Soyadi</label>
+            @Html.TextBoxFor(m => m.DiyetisyenSoyadi, new { @disabled = "true", @class = "form-control" }) @*Modelden gelen diyetisyen soyadi yaz*@
+        </div>
+        <div>
+            <label>Telefon Numarası</label>
+            @Html.TextBoxFor(m => m.TelefonNumarasi, new { @disabled = "true", @class = "form-control" }) @*Modelden gelen diyetisyen tel no yaz*@
+        </div>
+        <div>
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.Email, new { @disabled = "true", @class = "form-control" }) @*Modelden gelen diyetisyen emiail yaz*@
+        </div>
+        <div>
+            <label>Il</label>
+            @Html.TextBoxFor(m => m.iller.sehiradi, new { @disabled = "true", @class = "form-control" }) @*Modelden gelen diyetisyen yaşadığı il yaz*@
+        </div>
+        <div>
+            <label>Ilce</label>
+            @Html.TextBoxFor(m => m.ilceler.ilceadi, new { @disabled = "true", @class = "form-control" })@*Modelden gelen diyetisyen yaşdığı ilçe yaz*@ 
+        </div>
+        <button class="btn btn-info mt-2">Ekle</button>
+        <h3 class="card-title">@ViewBag.Hata</h3>
+    </form>
+</div>
+
+<script>
+    var btn = document.querySelector(".btn");
+    var msj = "@ViewBag.Disable"
+
+
+
+    if (msj == "Disable") { /* viewbagdan gelen mesaj disable ise buttonu disabled yap*/
+        btn.setAttribute("disabled", true);
+    } else if (msj == "Enable") { /*viewbagdan gfelen mesaj enable ise butonu aktif yap*/
+        btn.setAttribute("disabled", false);
+    }
+</script>

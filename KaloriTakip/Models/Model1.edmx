@@ -1,0 +1,1130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KaloriTakipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ilceler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ilceadi" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="sehirid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sehiradi" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_AksamYemegi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici" Type="int" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Yemek" Type="int" />
+          <Property Name="PorsiyonMiktari" Type="float" />
+          <Property Name="Kalori" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_AraOgun">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici" Type="int" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Yemek" Type="int" />
+          <Property Name="PorsiyonMiktari" Type="float" />
+          <Property Name="Kalori" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Bildirimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Icerik" Type="nvarchar(max)" />
+          <Property Name="Kullanici" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Diyetisyen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiyetisyenAdi" Type="nvarchar" MaxLength="150" />
+          <Property Name="DiyetisyenSoyadi" Type="nvarchar" MaxLength="150" />
+          <Property Name="TelefonNumarasi" Type="nvarchar" MaxLength="11" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="il" Type="int" />
+          <Property Name="ilce" Type="int" />
+          <Property Name="Yetki" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_DiyetisyenlerinHastalari">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Diyetisyen" Type="int" />
+          <Property Name="Kullanici" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Kahvaltı">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici" Type="int" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Yemek" Type="int" />
+          <Property Name="PorsiyonMiktari" Type="float" />
+          <Property Name="Kalori" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_KiloTakip">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici" Type="int" />
+          <Property Name="MevcutKilosu" Type="float" />
+          <Property Name="MevcutBoy" Type="int" />
+          <Property Name="Yas" Type="int" />
+          <Property Name="AktiviteSeviyesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="GunlukKalori" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Kullanici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="200" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cinsiyet" Type="char" MaxLength="1" />
+          <Property Name="Yetki" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_OgleYemegi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici" Type="int" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Yemek" Type="int" />
+          <Property Name="PorsiyonMiktari" Type="float" />
+          <Property Name="Kalori" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Yemek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YemekAdi" Type="nvarchar" MaxLength="150" />
+          <Property Name="Kalori(100Gram)" Type="float" />
+          <Property Name="ProteinMiktari" Type="float" />
+          <Property Name="KarbonhidratMiktari" Type="float" />
+          <Property Name="YagMiktari" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Yetki">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Durum" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tbl_Yonetici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Yetki" Type="int" />
+        </EntityType>
+        <Association Name="FK_ilceler_iller">
+          <End Role="iller" Type="Self.iller" Multiplicity="1" />
+          <End Role="ilceler" Type="Self.ilceler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ilceler">
+              <PropertyRef Name="sehirid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_AksamYemegi_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_AksamYemegi" Type="Self.tbl_AksamYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AksamYemegi">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_AksamYemegi_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_AksamYemegi" Type="Self.tbl_AksamYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AksamYemegi">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_AraOgun_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_AraOgun" Type="Self.tbl_AraOgun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AraOgun">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_AraOgun_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_AraOgun" Type="Self.tbl_AraOgun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AraOgun">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Bildirimler_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_Bildirimler" Type="Self.tbl_Bildirimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Bildirimler">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Diyetisyen_ilceler">
+          <End Role="ilceler" Type="Self.ilceler" Multiplicity="0..1" />
+          <End Role="tbl_Diyetisyen" Type="Self.tbl_Diyetisyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilceler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Diyetisyen">
+              <PropertyRef Name="ilce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Diyetisyen_iller">
+          <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+          <End Role="tbl_Diyetisyen" Type="Self.tbl_Diyetisyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Diyetisyen">
+              <PropertyRef Name="il" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Diyetisyen_tbl_Yetki">
+          <End Role="tbl_Yetki" Type="Self.tbl_Yetki" Multiplicity="0..1" />
+          <End Role="tbl_Diyetisyen" Type="Self.tbl_Diyetisyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yetki">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Diyetisyen">
+              <PropertyRef Name="Yetki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen">
+          <End Role="tbl_Diyetisyen" Type="Self.tbl_Diyetisyen" Multiplicity="0..1" />
+          <End Role="tbl_DiyetisyenlerinHastalari" Type="Self.tbl_DiyetisyenlerinHastalari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Diyetisyen">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_DiyetisyenlerinHastalari">
+              <PropertyRef Name="Diyetisyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_DiyetisyenlerinHastalari" Type="Self.tbl_DiyetisyenlerinHastalari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_DiyetisyenlerinHastalari">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Kahvaltı_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_Kahvaltı" Type="Self.tbl_Kahvaltı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Kahvaltı">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Kahvaltı_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_Kahvaltı" Type="Self.tbl_Kahvaltı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Kahvaltı">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_KiloTakip_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_KiloTakip" Type="Self.tbl_KiloTakip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_KiloTakip">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Kullanici_tbl_Yetki">
+          <End Role="tbl_Yetki" Type="Self.tbl_Yetki" Multiplicity="0..1" />
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yetki">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Kullanici">
+              <PropertyRef Name="Yetki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_OgleYemegi_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_OgleYemegi" Type="Self.tbl_OgleYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_OgleYemegi">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_OgleYemegi_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_OgleYemegi" Type="Self.tbl_OgleYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_OgleYemegi">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KaloriTakipModelStoreContainer">
+          <EntitySet Name="ilceler" EntityType="Self.ilceler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AksamYemegi" EntityType="Self.tbl_AksamYemegi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AraOgun" EntityType="Self.tbl_AraOgun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Bildirimler" EntityType="Self.tbl_Bildirimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Diyetisyen" EntityType="Self.tbl_Diyetisyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DiyetisyenlerinHastalari" EntityType="Self.tbl_DiyetisyenlerinHastalari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Kahvaltı" EntityType="Self.tbl_Kahvaltı" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_KiloTakip" EntityType="Self.tbl_KiloTakip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Kullanici" EntityType="Self.tbl_Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_OgleYemegi" EntityType="Self.tbl_OgleYemegi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Yemek" EntityType="Self.tbl_Yemek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Yetki" EntityType="Self.tbl_Yetki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Yonetici" EntityType="Self.tbl_Yonetici" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ilceler_iller" Association="Self.FK_ilceler_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="ilceler" EntitySet="ilceler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_AksamYemegi_tbl_Kullanici" Association="Self.FK_tbl_AksamYemegi_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_AksamYemegi" EntitySet="tbl_AksamYemegi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_AksamYemegi_tbl_Yemek" Association="Self.FK_tbl_AksamYemegi_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_AksamYemegi" EntitySet="tbl_AksamYemegi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_AraOgun_tbl_Kullanici" Association="Self.FK_tbl_AraOgun_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_AraOgun" EntitySet="tbl_AraOgun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_AraOgun_tbl_Yemek" Association="Self.FK_tbl_AraOgun_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_AraOgun" EntitySet="tbl_AraOgun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Bildirimler_tbl_Kullanici" Association="Self.FK_tbl_Bildirimler_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_Bildirimler" EntitySet="tbl_Bildirimler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Diyetisyen_ilceler" Association="Self.FK_tbl_Diyetisyen_ilceler">
+            <End Role="ilceler" EntitySet="ilceler" />
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Diyetisyen_iller" Association="Self.FK_tbl_Diyetisyen_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Diyetisyen_tbl_Yetki" Association="Self.FK_tbl_Diyetisyen_tbl_Yetki">
+            <End Role="tbl_Yetki" EntitySet="tbl_Yetki" />
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen" Association="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen">
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+            <End Role="tbl_DiyetisyenlerinHastalari" EntitySet="tbl_DiyetisyenlerinHastalari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici" Association="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_DiyetisyenlerinHastalari" EntitySet="tbl_DiyetisyenlerinHastalari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Kahvaltı_tbl_Kullanici" Association="Self.FK_tbl_Kahvaltı_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_Kahvaltı" EntitySet="tbl_Kahvaltı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Kahvaltı_tbl_Yemek" Association="Self.FK_tbl_Kahvaltı_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_Kahvaltı" EntitySet="tbl_Kahvaltı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_KiloTakip_tbl_Kullanici" Association="Self.FK_tbl_KiloTakip_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_KiloTakip" EntitySet="tbl_KiloTakip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Kullanici_tbl_Yetki" Association="Self.FK_tbl_Kullanici_tbl_Yetki">
+            <End Role="tbl_Yetki" EntitySet="tbl_Yetki" />
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_OgleYemegi_tbl_Kullanici" Association="Self.FK_tbl_OgleYemegi_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_OgleYemegi" EntitySet="tbl_OgleYemegi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_OgleYemegi_tbl_Yemek" Association="Self.FK_tbl_OgleYemegi_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_OgleYemegi" EntitySet="tbl_OgleYemegi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KaloriTakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_AksamYemegi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici" Type="Int32" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Yemek" Type="Int32" />
+          <Property Name="PorsiyonMiktari" Type="Double" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_AksamYemegi_tbl_Kullanici" FromRole="tbl_AksamYemegi" ToRole="tbl_Kullanici" />
+          <NavigationProperty Name="tbl_Yemek" Relationship="Self.FK_tbl_AksamYemegi_tbl_Yemek" FromRole="tbl_AksamYemegi" ToRole="tbl_Yemek" />
+          <Property Name="Kalori" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_AraOgun">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici" Type="Int32" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Yemek" Type="Int32" />
+          <Property Name="PorsiyonMiktari" Type="Double" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_AraOgun_tbl_Kullanici" FromRole="tbl_AraOgun" ToRole="tbl_Kullanici" />
+          <NavigationProperty Name="tbl_Yemek" Relationship="Self.FK_tbl_AraOgun_tbl_Yemek" FromRole="tbl_AraOgun" ToRole="tbl_Yemek" />
+          <Property Name="Kalori" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_Bildirimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanici" Type="Int32" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_Bildirimler_tbl_Kullanici" FromRole="tbl_Bildirimler" ToRole="tbl_Kullanici" />
+        </EntityType>
+        <EntityType Name="tbl_Diyetisyen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiyetisyenAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DiyetisyenSoyadi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonNumarasi" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Yetki" Type="Int32" />
+          <NavigationProperty Name="tbl_Yetki" Relationship="Self.FK_tbl_Diyetisyen_tbl_Yetki" FromRole="tbl_Diyetisyen" ToRole="tbl_Yetki" />
+          <NavigationProperty Name="tbl_DiyetisyenlerinHastalari" Relationship="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen" FromRole="tbl_Diyetisyen" ToRole="tbl_DiyetisyenlerinHastalari" />
+          <Property Name="il" Type="Int32" />
+          <Property Name="ilce" Type="Int32" />
+          <NavigationProperty Name="ilceler" Relationship="KaloriTakipModel.FK_tbl_Diyetisyen_ilceler" FromRole="tbl_Diyetisyen" ToRole="ilceler" />
+          <NavigationProperty Name="iller" Relationship="KaloriTakipModel.FK_tbl_Diyetisyen_iller" FromRole="tbl_Diyetisyen" ToRole="iller" />
+        </EntityType>
+        <EntityType Name="tbl_DiyetisyenlerinHastalari">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Diyetisyen" Type="Int32" />
+          <Property Name="Kullanici" Type="Int32" />
+          <NavigationProperty Name="tbl_Diyetisyen" Relationship="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen" FromRole="tbl_DiyetisyenlerinHastalari" ToRole="tbl_Diyetisyen" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici" FromRole="tbl_DiyetisyenlerinHastalari" ToRole="tbl_Kullanici" />
+        </EntityType>
+        <EntityType Name="tbl_Kahvaltı">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici" Type="Int32" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Yemek" Type="Int32" />
+          <Property Name="PorsiyonMiktari" Type="Double" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_Kahvaltı_tbl_Kullanici" FromRole="tbl_Kahvaltı" ToRole="tbl_Kullanici" />
+          <NavigationProperty Name="tbl_Yemek" Relationship="Self.FK_tbl_Kahvaltı_tbl_Yemek" FromRole="tbl_Kahvaltı" ToRole="tbl_Yemek" />
+          <Property Name="Kalori" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_KiloTakip">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici" Type="Int32" />
+          <Property Name="MevcutKilosu" Type="Double" />
+          <Property Name="MevcutBoy" Type="Int32" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_KiloTakip_tbl_Kullanici" FromRole="tbl_KiloTakip" ToRole="tbl_Kullanici" />
+          <Property Name="GunlukKalori" Type="Int32" />
+          <Property Name="Yas" Type="Int32" />
+          <Property Name="AktiviteSeviyesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Kullanici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Yetki" Type="Int32" />
+          <NavigationProperty Name="tbl_AksamYemegi" Relationship="Self.FK_tbl_AksamYemegi_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_AksamYemegi" />
+          <NavigationProperty Name="tbl_AraOgun" Relationship="Self.FK_tbl_AraOgun_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_AraOgun" />
+          <NavigationProperty Name="tbl_Bildirimler" Relationship="Self.FK_tbl_Bildirimler_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_Bildirimler" />
+          <NavigationProperty Name="tbl_DiyetisyenlerinHastalari" Relationship="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_DiyetisyenlerinHastalari" />
+          <NavigationProperty Name="tbl_Kahvaltı" Relationship="Self.FK_tbl_Kahvaltı_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_Kahvaltı" />
+          <NavigationProperty Name="tbl_KiloTakip" Relationship="Self.FK_tbl_KiloTakip_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_KiloTakip" />
+          <NavigationProperty Name="tbl_Yetki" Relationship="Self.FK_tbl_Kullanici_tbl_Yetki" FromRole="tbl_Kullanici" ToRole="tbl_Yetki" />
+          <NavigationProperty Name="tbl_OgleYemegi" Relationship="Self.FK_tbl_OgleYemegi_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_OgleYemegi" />
+        </EntityType>
+        <EntityType Name="tbl_OgleYemegi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici" Type="Int32" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Yemek" Type="Int32" />
+          <Property Name="PorsiyonMiktari" Type="Double" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_OgleYemegi_tbl_Kullanici" FromRole="tbl_OgleYemegi" ToRole="tbl_Kullanici" />
+          <NavigationProperty Name="tbl_Yemek" Relationship="Self.FK_tbl_OgleYemegi_tbl_Yemek" FromRole="tbl_OgleYemegi" ToRole="tbl_Yemek" />
+          <Property Name="Kalori" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_Yemek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YemekAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Kalori_100Gram_" Type="Double" />
+          <Property Name="ProteinMiktari" Type="Double" />
+          <Property Name="KarbonhidratMiktari" Type="Double" />
+          <Property Name="YagMiktari" Type="Double" />
+          <NavigationProperty Name="tbl_AksamYemegi" Relationship="Self.FK_tbl_AksamYemegi_tbl_Yemek" FromRole="tbl_Yemek" ToRole="tbl_AksamYemegi" />
+          <NavigationProperty Name="tbl_AraOgun" Relationship="Self.FK_tbl_AraOgun_tbl_Yemek" FromRole="tbl_Yemek" ToRole="tbl_AraOgun" />
+          <NavigationProperty Name="tbl_Kahvaltı" Relationship="Self.FK_tbl_Kahvaltı_tbl_Yemek" FromRole="tbl_Yemek" ToRole="tbl_Kahvaltı" />
+          <NavigationProperty Name="tbl_OgleYemegi" Relationship="Self.FK_tbl_OgleYemegi_tbl_Yemek" FromRole="tbl_Yemek" ToRole="tbl_OgleYemegi" />
+        </EntityType>
+        <EntityType Name="tbl_Yetki">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="tbl_Diyetisyen" Relationship="Self.FK_tbl_Diyetisyen_tbl_Yetki" FromRole="tbl_Yetki" ToRole="tbl_Diyetisyen" />
+          <NavigationProperty Name="tbl_Kullanici" Relationship="Self.FK_tbl_Kullanici_tbl_Yetki" FromRole="tbl_Yetki" ToRole="tbl_Kullanici" />
+        </EntityType>
+        <EntityType Name="tbl_Yonetici">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Yetki" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_tbl_AksamYemegi_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_AksamYemegi" Type="Self.tbl_AksamYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AksamYemegi">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_AksamYemegi_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_AksamYemegi" Type="Self.tbl_AksamYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AksamYemegi">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_AraOgun_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_AraOgun" Type="Self.tbl_AraOgun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AraOgun">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_AraOgun_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_AraOgun" Type="Self.tbl_AraOgun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_AraOgun">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Bildirimler_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_Bildirimler" Type="Self.tbl_Bildirimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Bildirimler">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Diyetisyen_tbl_Yetki">
+          <End Role="tbl_Yetki" Type="Self.tbl_Yetki" Multiplicity="0..1" />
+          <End Role="tbl_Diyetisyen" Type="Self.tbl_Diyetisyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yetki">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Diyetisyen">
+              <PropertyRef Name="Yetki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen">
+          <End Role="tbl_Diyetisyen" Type="Self.tbl_Diyetisyen" Multiplicity="0..1" />
+          <End Role="tbl_DiyetisyenlerinHastalari" Type="Self.tbl_DiyetisyenlerinHastalari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Diyetisyen">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_DiyetisyenlerinHastalari">
+              <PropertyRef Name="Diyetisyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_DiyetisyenlerinHastalari" Type="Self.tbl_DiyetisyenlerinHastalari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_DiyetisyenlerinHastalari">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Kahvaltı_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_Kahvaltı" Type="Self.tbl_Kahvaltı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Kahvaltı">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Kahvaltı_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_Kahvaltı" Type="Self.tbl_Kahvaltı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Kahvaltı">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_KiloTakip_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_KiloTakip" Type="Self.tbl_KiloTakip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_KiloTakip">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Kullanici_tbl_Yetki">
+          <End Role="tbl_Yetki" Type="Self.tbl_Yetki" Multiplicity="0..1" />
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yetki">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Kullanici">
+              <PropertyRef Name="Yetki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_OgleYemegi_tbl_Kullanici">
+          <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="0..1" />
+          <End Role="tbl_OgleYemegi" Type="Self.tbl_OgleYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Kullanici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_OgleYemegi">
+              <PropertyRef Name="Kullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_OgleYemegi_tbl_Yemek">
+          <End Role="tbl_Yemek" Type="Self.tbl_Yemek" Multiplicity="0..1" />
+          <End Role="tbl_OgleYemegi" Type="Self.tbl_OgleYemegi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Yemek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_OgleYemegi">
+              <PropertyRef Name="Yemek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KaloriTakipEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_AksamYemegi" EntityType="Self.tbl_AksamYemegi" />
+          <EntitySet Name="tbl_AraOgun" EntityType="Self.tbl_AraOgun" />
+          <EntitySet Name="tbl_Bildirimler" EntityType="Self.tbl_Bildirimler" />
+          <EntitySet Name="tbl_Diyetisyen" EntityType="Self.tbl_Diyetisyen" />
+          <EntitySet Name="tbl_DiyetisyenlerinHastalari" EntityType="Self.tbl_DiyetisyenlerinHastalari" />
+          <EntitySet Name="tbl_Kahvaltı" EntityType="Self.tbl_Kahvaltı" />
+          <EntitySet Name="tbl_KiloTakip" EntityType="Self.tbl_KiloTakip" />
+          <EntitySet Name="tbl_Kullanici" EntityType="Self.tbl_Kullanici" />
+          <EntitySet Name="tbl_OgleYemegi" EntityType="Self.tbl_OgleYemegi" />
+          <EntitySet Name="tbl_Yemek" EntityType="Self.tbl_Yemek" />
+          <EntitySet Name="tbl_Yetki" EntityType="Self.tbl_Yetki" />
+          <EntitySet Name="tbl_Yonetici" EntityType="Self.tbl_Yonetici" />
+          <AssociationSet Name="FK_tbl_AksamYemegi_tbl_Kullanici" Association="Self.FK_tbl_AksamYemegi_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_AksamYemegi" EntitySet="tbl_AksamYemegi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_AksamYemegi_tbl_Yemek" Association="Self.FK_tbl_AksamYemegi_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_AksamYemegi" EntitySet="tbl_AksamYemegi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_AraOgun_tbl_Kullanici" Association="Self.FK_tbl_AraOgun_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_AraOgun" EntitySet="tbl_AraOgun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_AraOgun_tbl_Yemek" Association="Self.FK_tbl_AraOgun_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_AraOgun" EntitySet="tbl_AraOgun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Bildirimler_tbl_Kullanici" Association="Self.FK_tbl_Bildirimler_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_Bildirimler" EntitySet="tbl_Bildirimler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Diyetisyen_tbl_Yetki" Association="Self.FK_tbl_Diyetisyen_tbl_Yetki">
+            <End Role="tbl_Yetki" EntitySet="tbl_Yetki" />
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen" Association="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Diyetisyen">
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+            <End Role="tbl_DiyetisyenlerinHastalari" EntitySet="tbl_DiyetisyenlerinHastalari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici" Association="Self.FK_tbl_DiyetisyenlerinHastalari_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_DiyetisyenlerinHastalari" EntitySet="tbl_DiyetisyenlerinHastalari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Kahvaltı_tbl_Kullanici" Association="Self.FK_tbl_Kahvaltı_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_Kahvaltı" EntitySet="tbl_Kahvaltı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Kahvaltı_tbl_Yemek" Association="Self.FK_tbl_Kahvaltı_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_Kahvaltı" EntitySet="tbl_Kahvaltı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_KiloTakip_tbl_Kullanici" Association="Self.FK_tbl_KiloTakip_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_KiloTakip" EntitySet="tbl_KiloTakip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Kullanici_tbl_Yetki" Association="Self.FK_tbl_Kullanici_tbl_Yetki">
+            <End Role="tbl_Yetki" EntitySet="tbl_Yetki" />
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_OgleYemegi_tbl_Kullanici" Association="Self.FK_tbl_OgleYemegi_tbl_Kullanici">
+            <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+            <End Role="tbl_OgleYemegi" EntitySet="tbl_OgleYemegi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_OgleYemegi_tbl_Yemek" Association="Self.FK_tbl_OgleYemegi_tbl_Yemek">
+            <End Role="tbl_Yemek" EntitySet="tbl_Yemek" />
+            <End Role="tbl_OgleYemegi" EntitySet="tbl_OgleYemegi" />
+          </AssociationSet>
+          <EntitySet Name="ilcelers" EntityType="KaloriTakipModel.ilceler" />
+          <EntitySet Name="illers" EntityType="KaloriTakipModel.iller" />
+          <AssociationSet Name="FK_ilceler_iller" Association="KaloriTakipModel.FK_ilceler_iller">
+            <End Role="iller" EntitySet="illers" />
+            <End Role="ilceler" EntitySet="ilcelers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Diyetisyen_ilceler" Association="KaloriTakipModel.FK_tbl_Diyetisyen_ilceler">
+            <End Role="ilceler" EntitySet="ilcelers" />
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Diyetisyen_iller" Association="KaloriTakipModel.FK_tbl_Diyetisyen_iller">
+            <End Role="iller" EntitySet="illers" />
+            <End Role="tbl_Diyetisyen" EntitySet="tbl_Diyetisyen" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ilceler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ilceadi" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sehirid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="iller" Relationship="KaloriTakipModel.FK_ilceler_iller" FromRole="ilceler" ToRole="iller" />
+          <NavigationProperty Name="tbl_Diyetisyen" Relationship="KaloriTakipModel.FK_tbl_Diyetisyen_ilceler" FromRole="ilceler" ToRole="tbl_Diyetisyen" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sehiradi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ilceler" Relationship="KaloriTakipModel.FK_ilceler_iller" FromRole="iller" ToRole="ilceler" />
+          <NavigationProperty Name="tbl_Diyetisyen" Relationship="KaloriTakipModel.FK_tbl_Diyetisyen_iller" FromRole="iller" ToRole="tbl_Diyetisyen" />
+        </EntityType>
+        <Association Name="FK_ilceler_iller">
+          <End Type="KaloriTakipModel.iller" Role="iller" Multiplicity="1" />
+          <End Type="KaloriTakipModel.ilceler" Role="ilceler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ilceler">
+              <PropertyRef Name="sehirid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Diyetisyen_ilceler">
+          <End Type="KaloriTakipModel.ilceler" Role="ilceler" Multiplicity="0..1" />
+          <End Type="KaloriTakipModel.tbl_Diyetisyen" Role="tbl_Diyetisyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilceler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Diyetisyen">
+              <PropertyRef Name="ilce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Diyetisyen_iller">
+          <End Type="KaloriTakipModel.iller" Role="iller" Multiplicity="0..1" />
+          <End Type="KaloriTakipModel.tbl_Diyetisyen" Role="tbl_Diyetisyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Diyetisyen">
+              <PropertyRef Name="il" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KaloriTakipModelStoreContainer" CdmEntityContainer="KaloriTakipEntities2">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KaloriTakipModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AksamYemegi">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_AksamYemegi">
+              <MappingFragment StoreEntitySet="tbl_AksamYemegi">
+                <ScalarProperty Name="Kalori" ColumnName="Kalori" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Yemek" ColumnName="Yemek" />
+                <ScalarProperty Name="PorsiyonMiktari" ColumnName="PorsiyonMiktari" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AraOgun">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_AraOgun">
+              <MappingFragment StoreEntitySet="tbl_AraOgun">
+                <ScalarProperty Name="Kalori" ColumnName="Kalori" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Yemek" ColumnName="Yemek" />
+                <ScalarProperty Name="PorsiyonMiktari" ColumnName="PorsiyonMiktari" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Bildirimler">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_Bildirimler">
+              <MappingFragment StoreEntitySet="tbl_Bildirimler">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Diyetisyen">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_Diyetisyen">
+              <MappingFragment StoreEntitySet="tbl_Diyetisyen">
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+                <ScalarProperty Name="il" ColumnName="il" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DiyetisyenAdi" ColumnName="DiyetisyenAdi" />
+                <ScalarProperty Name="DiyetisyenSoyadi" ColumnName="DiyetisyenSoyadi" />
+                <ScalarProperty Name="TelefonNumarasi" ColumnName="TelefonNumarasi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DiyetisyenlerinHastalari">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_DiyetisyenlerinHastalari">
+              <MappingFragment StoreEntitySet="tbl_DiyetisyenlerinHastalari">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Diyetisyen" ColumnName="Diyetisyen" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Kahvaltı">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_Kahvaltı">
+              <MappingFragment StoreEntitySet="tbl_Kahvaltı">
+                <ScalarProperty Name="Kalori" ColumnName="Kalori" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Yemek" ColumnName="Yemek" />
+                <ScalarProperty Name="PorsiyonMiktari" ColumnName="PorsiyonMiktari" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_KiloTakip">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_KiloTakip">
+              <MappingFragment StoreEntitySet="tbl_KiloTakip">
+                <ScalarProperty Name="AktiviteSeviyesi" ColumnName="AktiviteSeviyesi" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+                <ScalarProperty Name="GunlukKalori" ColumnName="GunlukKalori" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="MevcutKilosu" ColumnName="MevcutKilosu" />
+                <ScalarProperty Name="MevcutBoy" ColumnName="MevcutBoy" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Kullanici">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_Kullanici">
+              <MappingFragment StoreEntitySet="tbl_Kullanici">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_OgleYemegi">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_OgleYemegi">
+              <MappingFragment StoreEntitySet="tbl_OgleYemegi">
+                <ScalarProperty Name="Kalori" ColumnName="Kalori" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Yemek" ColumnName="Yemek" />
+                <ScalarProperty Name="PorsiyonMiktari" ColumnName="PorsiyonMiktari" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Yemek">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_Yemek">
+              <MappingFragment StoreEntitySet="tbl_Yemek">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="YemekAdi" ColumnName="YemekAdi" />
+                <ScalarProperty Name="Kalori_100Gram_" ColumnName="Kalori(100Gram)" />
+                <ScalarProperty Name="ProteinMiktari" ColumnName="ProteinMiktari" />
+                <ScalarProperty Name="KarbonhidratMiktari" ColumnName="KarbonhidratMiktari" />
+                <ScalarProperty Name="YagMiktari" ColumnName="YagMiktari" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Yetki">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_Yetki">
+              <MappingFragment StoreEntitySet="tbl_Yetki">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Yonetici">
+            <EntityTypeMapping TypeName="KaloriTakipModel.tbl_Yonetici">
+              <MappingFragment StoreEntitySet="tbl_Yonetici">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ilcelers">
+            <EntityTypeMapping TypeName="KaloriTakipModel.ilceler">
+              <MappingFragment StoreEntitySet="ilceler">
+                <ScalarProperty Name="sehirid" ColumnName="sehirid" />
+                <ScalarProperty Name="ilceadi" ColumnName="ilceadi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="illers">
+            <EntityTypeMapping TypeName="KaloriTakipModel.iller">
+              <MappingFragment StoreEntitySet="iller">
+                <ScalarProperty Name="sehiradi" ColumnName="sehiradi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

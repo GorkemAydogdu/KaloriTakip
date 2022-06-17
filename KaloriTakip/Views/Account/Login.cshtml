@@ -1,0 +1,75 @@
+﻿@model KaloriTakip.Models.tbl_Kullanici
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login</title>
+
+    <style>
+        p > a:hover { /*p etiketinin içindeki a hover olduğunda*/
+            text-decoration: underline !important;
+        }
+        .form-control:focus { /*input focus olduğunda*/
+            border-color: none !important;
+            box-shadow: none !important;
+        }
+        .btn:focus { /*btn focus olduğunda*/
+            border-color: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+
+<body style="background-color: #eaeaea">
+
+    <div class="container vh-100">
+        <div class="row h-100 d-flex justify-content-center align-items-center">
+            <div class="col-9 col-sm-9 col-md-7 col-lg-5 col-xl-3 col-xxl-3 p-4 bg-white rounded-3">
+                <form method="post">
+                    <h2 class="text-center">Please Login</h2>
+                    <h4 class="text-danger">@ViewBag.hata</h4>
+                    <div class="form-group ">
+                        <label>Email</label>
+                        <input class="form-control mt-2" type="text" name="Email" />
+                        @*Emailden Dönen Hatayı Göster*@
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @style = "color:red" })
+                    </div>
+                    <div class="form-group my-3">
+                        <label>Password</label>
+                        <div class="input-group">
+                            <input class="form-control password mt-2" type="password" aria-label="Password" name="Sifre" />
+                            <div class="input-group-append mt-2">
+                                <button class="btn btn-dark btnShow" type="button">
+                                    <i class="fa-solid fa-eye text-white"></i>
+                                </button>
+                            </div>
+                        </div>
+                        @*Şifreden Dönen Hatayı Göster*@
+                        @Html.ValidationMessageFor(m => m.Sifre, "", new { @style = "color:red" })
+
+                    </div>
+                    <button class="btn btn-danger d-block w-100 mb-2" type="submit">Login</button>
+                    <p class="form-text text-muted">Don't have an account ? <a class="text-decoration-none" href="/Account/Register">Register</a></p>
+                    <a class="text-decoration-none" href="/Account/ResetPassword">Forgot Password?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/JS/JavaScript.js"></script>
+</body>
+
+</html>
